@@ -31,8 +31,10 @@ class LoginCompleteState extends LoginState {
 
   LoginCompleteState(this._firebaseUser);
 
+  FirebaseUser getUser(){
+    return _firebaseUser;
+  }
   @override
-  // TODO: implement props
   List<Object> get props => [_firebaseUser];
 }
 

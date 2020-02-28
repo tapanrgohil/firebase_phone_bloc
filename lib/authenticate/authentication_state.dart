@@ -5,10 +5,10 @@ abstract class AuthenticationState {}
 
 class InitialAuthenticationState extends AuthenticationState {}
 
-class AuthenticationUninitialized extends AuthenticationState {}
+class Uninitialized extends AuthenticationState {}
 
-class AuthenticationAuthenticated extends AuthenticationState {}
+class Authenticated extends AuthenticationState {}
 
-class AuthenticationUnauthenticated extends AuthenticationState {}
+class Unauthenticated extends AuthenticationState {}
 
-class AuthenticationLoading extends AuthenticationState {}
+class Loading extends AuthenticationState {}

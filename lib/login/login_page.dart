@@ -1,4 +1,3 @@
-import 'package:ebizcard/AppState.dart';
 import 'package:ebizcard/authenticate/bloc.dart';
 import 'package:ebizcard/data/user_repository.dart';
 import 'package:ebizcard/login/bloc/bloc.dart';
@@ -105,12 +104,15 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   getViewAsPerState(LoginState state) {
-    if (state is AuthenticationUnauthenticated) {
+    if (state is Unauthenticated) {
       return NumberInput();
     } else if (state is OtpSentState || state is OtpExceptionState) {
       return OtpInput();
     } else if (state is LoadingState) {
       return LoadingIndicator();
+    } else if (state is LoginCompleteState) {
+      BlocProvider.of<AuthenticationBloc>(context)
+          .add(LoggedIn(token: state.getUser().uid));
     } else {
       return NumberInput();
     }

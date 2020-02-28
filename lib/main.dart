@@ -72,13 +72,13 @@ class _MyAppState extends State<MyApp> {
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-          if (state is AuthenticationUninitialized) {
+          if (state is Uninitialized) {
             return SplashPage();
-          } else if (state is AuthenticationUnauthenticated) {
+          } else if (state is Unauthenticated) {
             return LoginPage(
               userRepository: userRepository,
             );
-          } else if (state is AuthenticationAuthenticated) {
+          } else if (state is Authenticated) {
             return EditUserDetail();
           } else {
             return SplashPage();

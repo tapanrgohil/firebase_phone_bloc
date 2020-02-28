@@ -20,20 +20,20 @@ class AuthenticationBloc
       final bool hasToken = await userRepository.getUser() != null;
 
       if (hasToken) {
-        yield AuthenticationAuthenticated();
+        yield Authenticated();
       } else {
-        yield AuthenticationUnauthenticated();
+        yield Unauthenticated();
       }
     }
 
     if (event is LoggedIn) {
-      yield AuthenticationLoading();
-      yield AuthenticationAuthenticated();
+      yield Loading();
+      yield Authenticated();
     }
 
     if (event is LoggedOut) {
-      yield AuthenticationLoading();
-      yield AuthenticationUnauthenticated();
+      yield Loading();
+      yield Unauthenticated();
     }
   }
 }

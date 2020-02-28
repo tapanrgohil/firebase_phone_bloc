@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import './bloc.dart';
+import './user_bloc.dart';
 
 class UserDetailBloc extends Bloc<UserDetailEvent, UserDetailState> {
   @override
